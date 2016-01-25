@@ -3,7 +3,6 @@ package com.orpi.RegisterLogin;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,8 +20,6 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +29,7 @@ public class LoginActivity extends Activity {
     private EditText email,password;
     private Button sign_in_register;
     private RequestQueue requestQueue;
-    private static final String URL = "http://localhost/eclipseWorkSpace/tutorial2/user_control.php";
+    private static final String URL = "http://192.168.0.1:80/eclipseWorkSpace/tutorial2/user_control.php";
     private StringRequest request;
 
     @Override
@@ -77,6 +74,7 @@ public class LoginActivity extends Activity {
                         HashMap<String,String> hashMap = new HashMap<String, String>();
                         hashMap.put("email",email.getText().toString());
                         hashMap.put("password",password.getText().toString());
+                        hashMap.put("Content-Type", "application/json; charset=utf-8");
 
                         return  hashMap;
 
